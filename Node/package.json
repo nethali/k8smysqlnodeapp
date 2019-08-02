@@ -1,0 +1,16 @@
+{
+  "name": "mysqlnode",
+  "version": "1.0.0",
+  "description": "MySQL and Node Demo App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nethali Zoysa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "localenv": "^0.2.2",
+    "mysql": "^2.17.1"
+  }
+}

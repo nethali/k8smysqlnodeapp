@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-node
+  labels:
+    app: nodeapp
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-node
+  template:
+    metadata:
+      labels:
+        app: pod-node
+    spec:
+      containers:
+      - name: node
+        image: nethali/mysqlnode:1.0.0
+        imagePullPolicy: Always
+        ports:
+        - name: webapp-port
+          containerPort: 8080
+        env:
+          - name: MYSQL_HOST
+            value: svc-mysql
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: mysqlnode-secret
+                key: username
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysqlnode-secret
+                key: password
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: mysqlnode-secret
+                key: database

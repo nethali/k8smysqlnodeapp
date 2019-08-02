@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-node
+  labels:
+    app: svc-node
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    nodePort: 30007
+    protocol: TCP
+  selector:
+    app: pod-node
