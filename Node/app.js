@@ -1,3 +1,4 @@
+// To read environment variables
 require('localenv');
 
 const express = require('express');

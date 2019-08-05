@@ -1,9 +1,7 @@
-require('localenv');
-
 const express = require('express');
 const mysql = require('mysql');
 
-// Create connection. All the values are taken from environment variables
+// Create connection
 const db = mysql.createConnection({
   host: '192.168.30.160',
   user: 'user',
